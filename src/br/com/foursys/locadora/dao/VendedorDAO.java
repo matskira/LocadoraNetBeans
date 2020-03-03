@@ -19,7 +19,7 @@ public class VendedorDAO {
 		this.bd = bd;
 	}
 
-	// Método de inserir Vendedor;
+	// Mï¿½todo de inserir Vendedor;
 	public void inserirVendedor(Vendedor vendedor) throws SQLException {
 
 		String sql = "INSERT INTO vendedor(nome, area_venda, cidade, estado, sexo, idade, salario) VALUES(?,?,?,?,?,?,?)";
@@ -35,7 +35,7 @@ public class VendedorDAO {
 		comando.execute();
 	}
 
-	// Método alterar Vendedor
+	// Mï¿½todo alterar Vendedor
 	public void alterarVendedor(Vendedor vendedor) throws SQLException {
 		String sql = "UPDATE vendedor SET area_venda=?, cidade = ?, estado = ?, salario = ? WHERE nome=?";
 		PreparedStatement comando = bd.prepareStatement(sql);
@@ -47,7 +47,7 @@ public class VendedorDAO {
 		comando.execute();
 	}
 
-	// Método excluir vendedor
+	// Mï¿½todo excluir vendedor
 	public void excluirVendedor(Vendedor vendedor) throws SQLException {
 
 		String sql = "DELETE FROM vendedor WHERE nome=?";
@@ -56,7 +56,7 @@ public class VendedorDAO {
 		comando.execute();
 	}
 
-	// Método listar Vendedor
+	// Mï¿½todo listar Vendedor
 	public List<Vendedor> buscarTodosVendedores() throws SQLException {
 		String sql = "SELECT * FROM vendedor ORDER BY nome";
 		PreparedStatement comando = bd.prepareStatement(sql);
@@ -70,10 +70,8 @@ public class VendedorDAO {
 			vendedor.setNome(cursor.getString("nome"));
 			vendedor.setArea_venda(cursor.getString("area_venda"));
 			vendedor.setCidade(cidadeVendedor);
-			String texto[] = cursor.getString("estado").split("-");
-			String nomeEstado = texto[0];
-			String ufEstado = texto[1];
-			Estado estadoVendedor = new Estado(nomeEstado, ufEstado);
+			String texto = cursor.getString("estado");
+			Estado estadoVendedor = new Estado(texto, "");
 			vendedor.setEstado(estadoVendedor);
 			vendedor.setSexo(cursor.getString("sexo").charAt(0));
 			vendedor.setIdade(cursor.getInt("idade"));

@@ -1,6 +1,6 @@
 package br.com.foursys.locadora.model;
 /**
- * Classe modelo de Cidade, responsável por demonstrar a características da Cidade;
+ * Classe modelo de Cidade, responsï¿½vel por demonstrar a caracterï¿½sticas da Cidade;
  * @author mpoda
  *
  */
@@ -22,6 +22,11 @@ public class Cidade {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+    @Override
+    public String toString() {
+        return nome; //To change body of generated methods, choose Tools | Templates.
+    }
 	
 	
 }

@@ -1,6 +1,6 @@
 package br.com.foursys.locadora.model;
 /**
- * Classe modelo de Estado, responsável por demonstrar a características do Estado;
+ * Classe modelo de Estado, responsï¿½vel por demonstrar a caracterï¿½sticas do Estado;
  * @author mpoda
  *
  */
@@ -32,5 +32,12 @@ public class Estado {
 	public void setUf(String uf) {
 		this.uf = uf;
 	};
+
+    @Override
+    public String toString() {
+        return nome; //To change body of generated methods, choose Tools | Templates.
+    }
+        
+        
 		
 }

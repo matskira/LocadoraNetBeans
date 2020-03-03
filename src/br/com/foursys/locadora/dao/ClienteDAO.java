@@ -1,7 +1,7 @@
 package br.com.foursys.locadora.dao;
 
 /**
- * Responsável pelo CRUD do Cliente;
+ * Responsï¿½vel pelo CRUD do Cliente;
  * @author mpoda
  *
  */
@@ -24,7 +24,7 @@ public class ClienteDAO {
 		this.bd = bd;
 	}
 
-	// Método de inserir Cliente;
+	// Mï¿½todo de inserir Cliente;
 	public void inserirCliente(Cliente cliente) throws SQLException {
 
 		String sql = "INSERT INTO cliente(nome, logradouro, numero_logradouro, bairro,"
@@ -46,7 +46,7 @@ public class ClienteDAO {
 		comando.execute();
 	}
 
-	// Método alterar Clientes
+	// Mï¿½todo alterar Clientes
 	public void alterarCliente(Cliente cliente) throws SQLException {
 		String sql = "UPDATE cliente SET logradouro=?, numero_logradouro = ?, bairro = ?, cidade = ?, estado = ?, telefone = ? WHERE cpf=?";
 		PreparedStatement comando = bd.prepareStatement(sql);
@@ -60,7 +60,7 @@ public class ClienteDAO {
 		comando.execute();
 	}
 
-	// Método excluir cliente
+	// Mï¿½todo excluir cliente
 	public void excluirCliente(Cliente cliente) throws SQLException {
 
 		String sql = "DELETE FROM cliente WHERE cpf=?";
@@ -69,7 +69,7 @@ public class ClienteDAO {
 		comando.execute();
 	}
 
-	// Método listar Clientes
+	// Mï¿½todo listar Clientes
 	public List<Cliente> buscarTodosClientes() throws SQLException {
 		String sql = "SELECT * FROM cliente ORDER BY nome";
 		PreparedStatement comando = bd.prepareStatement(sql);
@@ -85,10 +85,8 @@ public class ClienteDAO {
 			cliente.setNumero_logradouro(cursor.getInt("numero_logradouro"));
 			cliente.setBairro(cursor.getString("bairro"));
 			cliente.setCidade(cidadeCliente);
-			String texto[] = cursor.getString("estado").split("-");
-			String nomeEstado = texto[0];
-			String ufEstado = texto[1];
-			Estado estadoCliente = new Estado(nomeEstado, ufEstado);
+			String texto = cursor.getString("estado");
+			Estado estadoCliente = new Estado(texto, "");
 			cliente.setEstado(estadoCliente);
 			cliente.setTelefone(cursor.getString("telefone"));
 			cliente.setCpf(cursor.getString("cpf"));
