@@ -1,6 +1,6 @@
 package br.com.foursys.locadora.model;
 /**
- * Classe modelo de Filme, respons·vel por demonstrar a caracterÌsticas do Filme;
+ * Classe modelo de Filme, respons√°vel por demonstrar a caracter√≠sticas do Filme;
  * @author mpoda
  *
  */

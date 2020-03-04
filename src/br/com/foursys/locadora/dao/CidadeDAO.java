@@ -1,6 +1,6 @@
 package br.com.foursys.locadora.dao;
 /**
- * Respons·vel pelo CRUD de nossos modelos, Cidade sÛ possui 'read';
+ * Respons√°vel pelo CRUD de nossos modelos, Cidade s√≥ possui 'read';
  * @author mpoda
  *
  */

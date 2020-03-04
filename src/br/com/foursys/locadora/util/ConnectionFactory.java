@@ -1,7 +1,7 @@
 package br.com.foursys.locadora.util;
 /**
  * @author mpoda
- * Classe respons·vel por realizar a conex„o com o banco de daddos;
+ * Classe respons√°vel por realizar a conex√£o com o banco de daddos;
  * 02/03/2020;
  */
 import java.sql.DriverManager;

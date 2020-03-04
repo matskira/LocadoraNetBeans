@@ -28,7 +28,7 @@ public class VendedorDAO {
 		comando.setString(1, vendedor.getNome());
 		comando.setString(2, vendedor.getArea_venda());
 		comando.setString(3, vendedor.getCidade().getNome());
-		comando.setString(4, vendedor.getEstado().getNome() + "-" + vendedor.getEstado().getUf());
+		comando.setString(4, vendedor.getEstado().getNome());
 		comando.setString(5, vendedor.getSexo() + "");
 		comando.setInt(6, vendedor.getIdade());
 		comando.setDouble(7, vendedor.getSalario());

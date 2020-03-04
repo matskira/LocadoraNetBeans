@@ -6,6 +6,7 @@
 package br.com.foursys;
 
 import br.com.foursys.locadora.view.ClienteView;
+import br.com.foursys.locadora.view.FilmeView;
 import br.com.foursys.locadora.view.MenuView;
 import br.com.foursys.locadora.view.VendedorView;
 

@@ -31,11 +31,6 @@ public class ClienteController {
         this.viewCliente = viewCliente;
     }
 
-    
-    
-    
-    
-    
     public void alterarCliente() {
         DefaultTableModel modelo = (DefaultTableModel) this.viewCliente.getTabelaCliente().getModel();
         if (this.viewCliente.getTabelaCliente().getSelectedRow() < 0) {
@@ -59,17 +54,17 @@ public class ClienteController {
         }
     }
 
-    public void excluirCliente(){
+    public void excluirCliente() {
         DefaultTableModel modelo = (DefaultTableModel) this.viewCliente.getTabelaCliente().getModel();
         if (this.viewCliente.getTabelaCliente().getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(null, "É necessário selecionar um cliente");
         } else {
             cliente = listaClientes.get(this.viewCliente.getTabelaCliente().getSelectedRow());
-            int opcao = JOptionPane.showConfirmDialog(null, "Confirma em excluir este registro?","Atenção",
-                                                      JOptionPane.YES_OPTION,
-                                                      JOptionPane.CANCEL_OPTION);
+            int opcao = JOptionPane.showConfirmDialog(null, "Confirma em excluir este registro?", "Atenção",
+                    JOptionPane.YES_OPTION,
+                    JOptionPane.CANCEL_OPTION);
             if (opcao == JOptionPane.YES_OPTION) {
-                 Connection bd = ConnectionFactory.getConnection();
+                Connection bd = ConnectionFactory.getConnection();
                 ClienteDAO dao = new ClienteDAO(bd);
                 try {
                     dao.excluirCliente(cliente);
@@ -82,34 +77,39 @@ public class ClienteController {
             }
         }
     }
+
     public void salvarCliente() {
         if (this.alterar == false) {
             //inserir um registro
             if (validarSalvar()) {
-                Cliente cliente = new Cliente();
-                cliente.setNome(this.viewCliente.getJtfNome().getText());
-                cliente.setLogradouro(this.viewCliente.getJtfLogradouro().getText());
-                cliente.setNumero_logradouro(Integer.parseInt(this.viewCliente.getJtfNumeroLogradouro().getText()));
-                cliente.setBairro(this.viewCliente.getJtfBairro().getText());
-                Cidade cidade = new Cidade(this.viewCliente.getCbCidade().getSelectedItem().toString());
-                cliente.setCidade(cidade);
-                Estado estado = new Estado(this.viewCliente.getCbEstado().getSelectedItem().toString(), "");
-                cliente.setEstado(estado);
-                cliente.setTelefone(this.viewCliente.getJtfTelefone().getText());
-                cliente.setCpf(this.viewCliente.getJtfCpf().getText());
-                cliente.setRg(this.viewCliente.getJtfRg().getText());
-                cliente.setSexo(this.viewCliente.getCbSexo().getSelectedItem().toString().charAt(0));
-                cliente.setData_nascimento(this.viewCliente.getJtfDataNascimento().getText());
-                cliente.setIdade(Integer.parseInt(this.viewCliente.getJtfIdade().getText()));
-                Connection bd = ConnectionFactory.getConnection();
-                ClienteDAO dao = new ClienteDAO(bd);
                 try {
+                    Cliente cliente = new Cliente();
+                    cliente.setNome(this.viewCliente.getJtfNome().getText());
+                    cliente.setLogradouro(this.viewCliente.getJtfLogradouro().getText());
+                    cliente.setNumero_logradouro(Integer.parseInt(this.viewCliente.getJtfNumeroLogradouro().getText()));
+                    cliente.setBairro(this.viewCliente.getJtfBairro().getText());
+                    Cidade cidade = new Cidade(this.viewCliente.getCbCidade().getSelectedItem().toString());
+                    cliente.setCidade(cidade);
+                    Estado estado = new Estado(this.viewCliente.getCbEstado().getSelectedItem().toString(), "");
+                    cliente.setEstado(estado);
+                    cliente.setTelefone(this.viewCliente.getJtfTelefone().getText());
+                    cliente.setCpf(this.viewCliente.getJtfCpf().getText());
+                    cliente.setRg(this.viewCliente.getJtfRg().getText());
+                    cliente.setSexo(this.viewCliente.getCbSexo().getSelectedItem().toString().charAt(0));
+                    cliente.setData_nascimento(this.viewCliente.getJtfDataNascimento().getText());
+                    cliente.setIdade(Integer.parseInt(this.viewCliente.getJtfIdade().getText()));
+                    Connection bd = ConnectionFactory.getConnection();
+                    ClienteDAO dao = new ClienteDAO(bd);
+
                     dao.inserirCliente(cliente);
                     JOptionPane.showMessageDialog(null, "Cliente inserido com sucesso!");
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Erro ao inserir o cliente.");
                     Logger.getLogger(ClienteController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Valor Inválido!");
                 }
+
                 limparCampos();
                 bloqueioInicial();
                 listarClientes();
@@ -142,13 +142,41 @@ public class ClienteController {
     }
 
     public boolean validarSalvar() {
-        if (this.viewCliente.getJtfCpf().equals("   .   .   -  ")) {
+        if (this.viewCliente.getJtfCpf().getText().equals("   .   .   -  ") || this.viewCliente.getJtfCpf().getText().equals(null)) {
             JOptionPane.showMessageDialog(null, "Informe o CPF, campo obrigatório.");
             return false;
         }
-        
-        if (this.viewCliente.getJtfRg().equals("  .   .   ")) {
+
+        if (this.viewCliente.getJtfRg().getText().trim().equals("  .   .   ") || this.viewCliente.getJtfRg().getText().equals(null)) {
             JOptionPane.showMessageDialog(null, "Informe o RG, campo obrigatório.");
+            return false;
+        }
+        if (this.viewCliente.getJtfDataNascimento().getText().trim().equals("  /  /   ") || this.viewCliente.getJtfDataNascimento().getText().equals(null)) {
+            JOptionPane.showMessageDialog(null, "Informe a Data de Nascimento, campo obrigatório.");
+            return false;
+        }
+        if (this.viewCliente.getJtfNome().getText().trim().equals("") || this.viewCliente.getJtfNome().getText().equals(null)) {
+            JOptionPane.showMessageDialog(null, "Informe o Nome, campo obrigatório.");
+            return false;
+        }
+        if (this.viewCliente.getJtfIdade().getText().trim().equals("") || this.viewCliente.getJtfIdade().getText().equals(null)) {
+            JOptionPane.showMessageDialog(null, "Informe a Idade, campo obrigatório.");
+            return false;
+        }
+        if (this.viewCliente.getJtfLogradouro().getText().trim().equals("") || this.viewCliente.getJtfLogradouro().getText().equals(null)) {
+            JOptionPane.showMessageDialog(null, "Informe o Endereço, campo obrigatório.");
+            return false;
+        }
+        if (this.viewCliente.getJtfNumeroLogradouro().getText().trim().equals("") || this.viewCliente.getJtfNumeroLogradouro().getText().equals(null)) {
+            JOptionPane.showMessageDialog(null, "Informe o Número do endereço, campo obrigatório.");
+            return false;
+        }
+        if (this.viewCliente.getJtfBairro().getText().trim().equals("") || this.viewCliente.getJtfBairro().getText().equals(null)) {
+            JOptionPane.showMessageDialog(null, "Informe o Bairro, campo obrigatório.");
+            return false;
+        }
+        if (this.viewCliente.getJtfTelefone().getText().trim().equals("(  )    -    ") || this.viewCliente.getJtfTelefone().getText().equals(null)) {
+            JOptionPane.showMessageDialog(null, "Informe o Telefone, campo obrigatório.");
             return false;
         }
 
@@ -156,8 +184,14 @@ public class ClienteController {
             JOptionPane.showMessageDialog(null, "Informe o sexo, campo obrigatório.");
             return false;
         }
-        
-  
+        if (this.viewCliente.getCbCidade().getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Informe a Cidade, campo obrigatório.");
+            return false;
+        }
+        if (this.viewCliente.getCbEstado().getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Informe o Estado, campo obrigatório.");
+            return false;
+        }
 
         return true;
     }
@@ -208,7 +242,7 @@ public class ClienteController {
         this.viewCliente.getJbtSair().setEnabled(true);
         this.viewCliente.getJbtSalvar().setEnabled(false);
         this.viewCliente.getJbtCancelar().setEnabled(false);
-        
+
         bloquearCampos();
     }
 
@@ -299,13 +333,14 @@ public class ClienteController {
         liberarCampos();
         this.alterar = false;
     }
- public void acaoBotaoSair(){
-        int opcao = JOptionPane.showConfirmDialog(null, "Deseja sair do cadastro ?","Atenção",
-                                                      JOptionPane.YES_OPTION,
-                                                      JOptionPane.CANCEL_OPTION);
-        if(opcao == JOptionPane.YES_OPTION){
+
+    public void acaoBotaoSair() {
+        int opcao = JOptionPane.showConfirmDialog(null, "Deseja sair do cadastro ?", "Atenção",
+                JOptionPane.YES_OPTION,
+                JOptionPane.CANCEL_OPTION);
+        if (opcao == JOptionPane.YES_OPTION) {
             viewCliente.dispose();
         }
-            
+
     }
 }

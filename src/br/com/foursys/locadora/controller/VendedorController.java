@@ -102,6 +102,8 @@ public class VendedorController {
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Erro ao inserir o vendedor.");
                     Logger.getLogger(VendedorController.class.getName()).log(Level.SEVERE, null, ex);
+                }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(null, "Valor Inválido!");
                 }
                 limparCampos();
                 bloqueioInicial();
@@ -133,22 +135,22 @@ public class VendedorController {
     }
 
     public boolean validarSalvar() {
-        if (this.viewVendedor.getJtfNome().getText().equals("")) {
+        if (this.viewVendedor.getJtfNome().getText().trim().equals("") || this.viewVendedor.getJtfNome().getText().equals(null)) {
             JOptionPane.showMessageDialog(null, "Informe o Nome, campo obrigatório.");
             return false;
         }
         
-        if (this.viewVendedor.getJtfIdade().getText().equals("")) {
+        if (this.viewVendedor.getJtfIdade().getText().trim().equals("")|| this.viewVendedor.getJtfIdade().getText().equals(null)) {
             JOptionPane.showMessageDialog(null, "Informe a Idade, campo obrigatório.");
             return false;
         }
 
-          if (this.viewVendedor.getJtfAreaDeVendas().getText().equals("")) {
+          if (this.viewVendedor.getJtfAreaDeVendas().getText().trim().equals("")|| this.viewVendedor.getJtfAreaDeVendas().getText().equals(null)) {
             JOptionPane.showMessageDialog(null, "Informe a Area de Vendas, campo obrigatório.");
             return false;
         }
           
-          if (this.viewVendedor.getJtfSalario().getText().equals("")) {
+          if (this.viewVendedor.getJtfSalario().getText().trim().equals("")|| this.viewVendedor.getJtfSalario().getText().equals(null)) {
             JOptionPane.showMessageDialog(null, "Informe o Salario, campo obrigatório.");
             return false;
         }

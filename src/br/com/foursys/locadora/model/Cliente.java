@@ -1,6 +1,6 @@
 package br.com.foursys.locadora.model;
 /**
- * Classe modelo de Cliente, respons·vel por demonstrar a caracterÌsticas do Cliente;
+ * Classe modelo de Cliente, respons√°vel por demonstrar a caracter√≠sticas do Cliente;
  * @author mpoda
  *
  */

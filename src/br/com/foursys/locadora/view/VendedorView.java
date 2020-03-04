@@ -254,7 +254,6 @@ public class VendedorView extends javax.swing.JFrame {
 
         jbtSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/foursys/locadora/view/Img/Icones/salvar.png"))); // NOI18N
         jbtSalvar.setText("SALVAR VENDEDOR");
-        jbtSalvar.setActionCommand("SALVAR VENDEDOR");
         jbtSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtSalvarActionPerformed(evt);

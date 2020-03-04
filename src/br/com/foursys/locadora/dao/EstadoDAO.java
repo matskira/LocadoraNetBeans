@@ -1,6 +1,6 @@
 package br.com.foursys.locadora.dao;
 /**
- * Respons·vel pelo CRUD do Estado;
+ * Respons√°vel pelo CRUD do Estado;
  * @author mpoda
  *
  */

@@ -1,7 +1,7 @@
 package br.com.foursys.locadora.dao;
 
 /**
- * Responsável pelo CRUD do Filme;
+ * Responsï¿½vel pelo CRUD do Filme;
  * @author mpoda
  *
  */
@@ -21,7 +21,7 @@ public class FilmeDAO {
 		this.bd = bd;
 	}
 
-	// método inserir filme
+	// mï¿½todo inserir filme
 	public void inserirFilme(Filme filme) throws SQLException {
 
 		String sql = "INSERT INTO filme(codigo, nome, genero, valor, disponivel, promocao, valor_promocao ) VALUES(?,?,?,?,?,?,?)";
@@ -38,11 +38,12 @@ public class FilmeDAO {
 		comando.execute();
 	}
 
-	// Método alterar filmes
+	// Mï¿½todo alterar filmes
 	public void alterarFilme(Filme filme) throws SQLException {
-		String sql = "UPDATE filme SET valor=?, disponivel=?, promocao=?, valor_promocao=?  WHERE codigo=?";
+		String sql = "UPDATE filme SET valor=?, disponivel=?, promocao=?, valor_promocao=?, genero=?  WHERE codigo=?";
 		PreparedStatement comando = bd.prepareStatement(sql);
-		comando.setInt(5, filme.getCodigo());
+		comando.setInt(6, filme.getCodigo());
+                comando.setString(5, filme.getGenero());
 		comando.setDouble(4, filme.getValor_promocional());
 		comando.setBoolean(3, filme.isPromocao());
 		comando.setBoolean(2, filme.isDisponivel());
@@ -50,7 +51,7 @@ public class FilmeDAO {
 		comando.execute();
 	}
 
-	// Método excluir filmes
+	// Mï¿½todo excluir filmes
 	public void excluirFilme(Filme filme) throws SQLException {
 
 		String sql = "DELETE FROM filme WHERE codigo=?";
@@ -59,7 +60,7 @@ public class FilmeDAO {
 		comando.execute();
 	}
 
-	// Método listar Filmes
+	// Mï¿½todo listar Filmes
 	public List<Filme> buscarTodosFilmes() throws SQLException {
 		String sql = "SELECT * FROM filme ORDER BY nome";
 		PreparedStatement comando = bd.prepareStatement(sql);
@@ -81,4 +82,5 @@ public class FilmeDAO {
 		return listaFilmes;
 
 	}
+
 }

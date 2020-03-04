@@ -60,6 +60,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemFilmeActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemLocacao">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Locacao"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemLocacaoActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenuSistema">
@@ -108,12 +116,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -123,33 +134,35 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
-                  <Component id="jbtClientes" min="-2" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Component id="jbtClientes" min="-2" pref="170" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jbtVendedor" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbtVendedor" min="-2" pref="165" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jbtFilme" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbtFilme" min="-2" pref="176" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jbtLocacao" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jbtSair" min="-2" pref="90" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="jbtLocacao" min="-2" pref="176" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jbtSair" min="-2" pref="104" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jbtClientes" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jbtVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jbtFilme" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jbtSair" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="jbtLocacao" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jbtVendedor" alignment="3" min="-2" pref="82" max="-2" attributes="0"/>
+                          <Component id="jbtFilme" alignment="3" min="-2" pref="82" max="-2" attributes="0"/>
+                          <Component id="jbtLocacao" alignment="3" min="-2" pref="82" max="-2" attributes="0"/>
+                          <Component id="jbtSair" alignment="3" min="-2" pref="82" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jbtClientes" min="-2" pref="82" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="235" max="32767" attributes="0"/>
+                  <EmptySpace pref="355" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -180,10 +193,13 @@
         <Component class="javax.swing.JButton" name="jbtFilme">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\WorkspaceNetBeans\Locadora\Icones\filme.png"/>
+              <Image iconType="3" name="/br/com/foursys/locadora/view/Img/Icones/filme.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Filme"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtFilmeActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jbtSair">
           <Properties>
@@ -199,7 +215,7 @@
         <Component class="javax.swing.JButton" name="jbtLocacao">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\WorkspaceNetBeans\Locadora\Icones\loca&#xe7;&#xe3;o.png"/>
+              <Image iconType="3" name="/br/com/foursys/locadora/view/Img/Icones/loca&#xe7;&#xe3;o.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Locacao"/>
           </Properties>

@@ -1,6 +1,6 @@
 package br.com.foursys.locadora.model;
 /**
- * Classe modelo de Vendedor, respons·vel por demonstrar a caracterÌsticas do Vendedor;
+ * Classe modelo de Vendedor, respons√°vel por demonstrar a caracter√≠sticas do Vendedor;
  * @author mpoda
  *
  */
