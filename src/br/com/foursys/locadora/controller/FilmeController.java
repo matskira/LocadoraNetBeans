@@ -32,6 +32,10 @@ public class FilmeController {
     public FilmeController(FilmeView viewFilme) {
         this.viewFilme = viewFilme;
     }
+    
+    public FilmeController(){
+        
+    }
 
     public void salvarFilme() {
         if (alterar == false) {
@@ -130,7 +134,17 @@ public class FilmeController {
             }
         }
     }
-
+    public List<Filme> buscarTudo() {
+        Connection bd = ConnectionFactory.getConnection();
+        FilmeDAO dao = new FilmeDAO(bd);
+        try {
+            listaFilmes = dao.buscarTodosFilmes();
+        } catch (SQLException ex) {
+            Logger.getLogger(FilmeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listaFilmes;
+    }
+    
     public void listarFilmes() {
         Connection bd = ConnectionFactory.getConnection();
         FilmeDAO dao = new FilmeDAO(bd);

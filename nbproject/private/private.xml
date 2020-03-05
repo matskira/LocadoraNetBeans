@@ -5,10 +5,14 @@
         <group>
             <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/Main.java</file>
             <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/locadora/view/MenuView.java</file>
-            <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/locadora/view/FilmeView.java</file>
-            <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/locadora/controller/FilmeController.java</file>
+            <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/locadora/model/Cliente.java</file>
+            <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/locadora/model/Locacao.java</file>
+            <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/locadora/dao/EstadoDAO.java</file>
+            <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/locadora/controller/LocacaoController.java</file>
+            <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/locadora/view/LocacaoView.java</file>
+            <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/locadora/model/Estado.java</file>
+            <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/locadora/controller/ClienteController.java</file>
             <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/locadora/controller/VendedorController.java</file>
-            <file>file:/C:/WorkspaceNetBeans/Locadora/src/br/com/foursys/locadora/view/ClienteView.java</file>
         </group>
     </open-files>
 </project-private>

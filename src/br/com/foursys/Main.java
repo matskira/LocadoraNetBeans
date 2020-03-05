@@ -5,10 +5,11 @@
  */
 package br.com.foursys;
 
-import br.com.foursys.locadora.view.ClienteView;
-import br.com.foursys.locadora.view.FilmeView;
+import br.com.foursys.locadora.view.LocacaoView;
 import br.com.foursys.locadora.view.MenuView;
-import br.com.foursys.locadora.view.VendedorView;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -20,9 +21,24 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-    //    new ClienteView();
+        try {
+            for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (UnsupportedLookAndFeelException e) {
+    // handle exception
+        } catch (ClassNotFoundException e) {
+    // handle exception
+        } catch (InstantiationException e) {
+    // handle exception
+        } catch (IllegalAccessException e) {
+    // handle exception
+        }
+           //     new LocacaoView();
+
         new MenuView();
     }
-    
 }

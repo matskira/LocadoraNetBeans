@@ -1,0 +1,4 @@
+br.com.foursys.locadora.model.Cliente@41b176ac;
+br.com.foursys.locadora.model.Vendedor@17fb22e9;
+br.com.foursys.locadora.model.Filme@6958cfa8;
+javax.swing.JToggleButton$ToggleButtonModel@518b5b59;

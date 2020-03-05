@@ -26,6 +26,10 @@ public class ClienteController {
     private List<Cidade> cidades;
     private List<Estado> estados;
     private boolean alterar;
+    
+    public ClienteController(){
+        
+    }
 
     public ClienteController(ClienteView viewCliente) {
         this.viewCliente = viewCliente;
@@ -142,16 +146,16 @@ public class ClienteController {
     }
 
     public boolean validarSalvar() {
-        if (this.viewCliente.getJtfCpf().getText().equals("   .   .   -  ") || this.viewCliente.getJtfCpf().getText().equals(null)) {
+        if (this.viewCliente.getJtfCpf().getText().equals("   .   .   -  ")) {
             JOptionPane.showMessageDialog(null, "Informe o CPF, campo obrigatório.");
             return false;
         }
 
-        if (this.viewCliente.getJtfRg().getText().trim().equals("  .   .   ") || this.viewCliente.getJtfRg().getText().equals(null)) {
+        if (this.viewCliente.getJtfRg().getText().equals("  .   .   ")) {
             JOptionPane.showMessageDialog(null, "Informe o RG, campo obrigatório.");
             return false;
         }
-        if (this.viewCliente.getJtfDataNascimento().getText().trim().equals("  /  /   ") || this.viewCliente.getJtfDataNascimento().getText().equals(null)) {
+        if (this.viewCliente.getJtfDataNascimento().getText().equals("  /  /   ")) {
             JOptionPane.showMessageDialog(null, "Informe a Data de Nascimento, campo obrigatório.");
             return false;
         }
@@ -175,7 +179,7 @@ public class ClienteController {
             JOptionPane.showMessageDialog(null, "Informe o Bairro, campo obrigatório.");
             return false;
         }
-        if (this.viewCliente.getJtfTelefone().getText().trim().equals("(  )    -    ") || this.viewCliente.getJtfTelefone().getText().equals(null)) {
+        if (this.viewCliente.getJtfTelefone().getText().equals("(  )    -    ")) {
             JOptionPane.showMessageDialog(null, "Informe o Telefone, campo obrigatório.");
             return false;
         }
@@ -194,6 +198,17 @@ public class ClienteController {
         }
 
         return true;
+    }
+    public List<Cliente> buscarTodos(){
+        Connection bd = ConnectionFactory.getConnection();
+        ClienteDAO dao = new ClienteDAO(bd);
+        try {
+            listaClientes = dao.buscarTodosClientes();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return listaClientes;
     }
 
     public void listarClientes() {

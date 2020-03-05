@@ -84,6 +84,11 @@ public class MenuView extends javax.swing.JFrame {
 
         jbtLocacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/foursys/locadora/view/Img/Icones/locação.png"))); // NOI18N
         jbtLocacao.setText("Locacao");
+        jbtLocacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtLocacaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,6 +126,8 @@ public class MenuView extends javax.swing.JFrame {
         jMenuCadastro.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenuCadastro.setText("Cadastro");
 
+        jMenuItemCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        jMenuItemCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/foursys/locadora/view/Img/Icones/clientes.png"))); // NOI18N
         jMenuItemCliente.setText("Cliente");
         jMenuItemCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         jMenuItemCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +137,8 @@ public class MenuView extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuItemCliente);
 
+        jMenuItemVendedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        jMenuItemVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/foursys/locadora/view/Img/Icones/funcionario.png"))); // NOI18N
         jMenuItemVendedor.setText("Vendedor");
         jMenuItemVendedor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenuItemVendedor.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +148,8 @@ public class MenuView extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuItemVendedor);
 
+        jMenuItemFilme.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
+        jMenuItemFilme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/foursys/locadora/view/Img/Icones/filme.png"))); // NOI18N
         jMenuItemFilme.setText("Filme");
         jMenuItemFilme.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenuItemFilme.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +159,8 @@ public class MenuView extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuItemFilme);
 
+        jMenuItemLocacao.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        jMenuItemLocacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/foursys/locadora/view/Img/Icones/locação.png"))); // NOI18N
         jMenuItemLocacao.setText("Locacao");
         jMenuItemLocacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,6 +174,8 @@ public class MenuView extends javax.swing.JFrame {
         jMenuSistema.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenuSistema.setText("Sistema");
 
+        jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItemSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/foursys/locadora/view/Img/Icones/sair.png"))); // NOI18N
         jMenuItemSair.setText("Sair");
         jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,7 +239,13 @@ public class MenuView extends javax.swing.JFrame {
 
     private void jMenuItemLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLocacaoActionPerformed
         // TODO add your handling code here:
+        new LocacaoView();
     }//GEN-LAST:event_jMenuItemLocacaoActionPerformed
+
+    private void jbtLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtLocacaoActionPerformed
+        // TODO add your handling code here:
+        new LocacaoView();
+    }//GEN-LAST:event_jbtLocacaoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

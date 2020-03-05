@@ -34,11 +34,10 @@ public class VendedorController {
         this.viewVendedor = viewVendedor;
     }
 
-    
-    
-    
-    
-    
+    public VendedorController() {
+
+    }
+
     public void alterarVendedor() {
         DefaultTableModel modelo = (DefaultTableModel) this.viewVendedor.getTabelaVendedor().getModel();
         if (this.viewVendedor.getTabelaVendedor().getSelectedRow() < 0) {
@@ -57,17 +56,17 @@ public class VendedorController {
         }
     }
 
-    public void excluirVendedor(){
+    public void excluirVendedor() {
         DefaultTableModel modelo = (DefaultTableModel) this.viewVendedor.getTabelaVendedor().getModel();
         if (this.viewVendedor.getTabelaVendedor().getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(null, "É necessário selecionar um vendedor");
         } else {
             vendedor = listaVendedor.get(this.viewVendedor.getTabelaVendedor().getSelectedRow());
-            int opcao = JOptionPane.showConfirmDialog(null, "Confirma em excluir este registro?","Atenção",
-                                                      JOptionPane.YES_OPTION,
-                                                      JOptionPane.CANCEL_OPTION);
+            int opcao = JOptionPane.showConfirmDialog(null, "Confirma em excluir este registro?", "Atenção",
+                    JOptionPane.YES_OPTION,
+                    JOptionPane.CANCEL_OPTION);
             if (opcao == JOptionPane.YES_OPTION) {
-                 Connection bd = ConnectionFactory.getConnection();
+                Connection bd = ConnectionFactory.getConnection();
                 VendedorDAO dao = new VendedorDAO(bd);
                 try {
                     dao.excluirVendedor(vendedor);
@@ -80,6 +79,7 @@ public class VendedorController {
             }
         }
     }
+
     public void salvarVendedor() {
         if (this.alterar == false) {
             //inserir um registro
@@ -102,7 +102,7 @@ public class VendedorController {
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Erro ao inserir o vendedor.");
                     Logger.getLogger(VendedorController.class.getName()).log(Level.SEVERE, null, ex);
-                }catch(NumberFormatException e){
+                } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Valor Inválido!");
                 }
                 limparCampos();
@@ -139,30 +139,50 @@ public class VendedorController {
             JOptionPane.showMessageDialog(null, "Informe o Nome, campo obrigatório.");
             return false;
         }
-        
-        if (this.viewVendedor.getJtfIdade().getText().trim().equals("")|| this.viewVendedor.getJtfIdade().getText().equals(null)) {
+
+        if (this.viewVendedor.getJtfIdade().getText().trim().equals("") || this.viewVendedor.getJtfIdade().getText().equals(null)) {
             JOptionPane.showMessageDialog(null, "Informe a Idade, campo obrigatório.");
             return false;
         }
 
-          if (this.viewVendedor.getJtfAreaDeVendas().getText().trim().equals("")|| this.viewVendedor.getJtfAreaDeVendas().getText().equals(null)) {
+        if (this.viewVendedor.getJtfAreaDeVendas().getText().trim().equals("") || this.viewVendedor.getJtfAreaDeVendas().getText().equals(null)) {
             JOptionPane.showMessageDialog(null, "Informe a Area de Vendas, campo obrigatório.");
             return false;
         }
-          
-          if (this.viewVendedor.getJtfSalario().getText().trim().equals("")|| this.viewVendedor.getJtfSalario().getText().equals(null)) {
+
+        if (this.viewVendedor.getJtfSalario().getText().trim().equals("") || this.viewVendedor.getJtfSalario().getText().equals(null)) {
             JOptionPane.showMessageDialog(null, "Informe o Salario, campo obrigatório.");
             return false;
         }
-          
+
         if (this.viewVendedor.getCbSexo().getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "Informe o sexo, campo obrigatório.");
             return false;
         }
-        
-  
+
+        if (this.viewVendedor.getCbCidade().getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Informe o sexo, campo obrigatório.");
+            return false;
+        }
+
+        if (this.viewVendedor.getCbEstado().getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Informe o sexo, campo obrigatório.");
+            return false;
+        }
 
         return true;
+    }
+
+    public List<Vendedor> buscarTudo() {
+
+        try {
+            Connection bd = ConnectionFactory.getConnection();
+            VendedorDAO dao = new VendedorDAO(bd);
+            listaVendedor = dao.buscarTodosVendedores();
+        } catch (SQLException ex) {
+            Logger.getLogger(VendedorController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listaVendedor;
     }
 
     public void listarVendedores() {
@@ -171,6 +191,7 @@ public class VendedorController {
         try {
             listaVendedor = dao.buscarTodosVendedores();
             carregarTabela();
+            bd.close();
         } catch (SQLException ex) {
             Logger.getLogger(VendedorController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -211,7 +232,7 @@ public class VendedorController {
         this.viewVendedor.getJbtSair().setEnabled(true);
         this.viewVendedor.getJbtSalvar().setEnabled(false);
         this.viewVendedor.getJbtCancelar().setEnabled(false);
-        
+
         bloquearCampos();
     }
 
@@ -285,15 +306,15 @@ public class VendedorController {
         liberarCampos();
         this.alterar = false;
     }
-    
-    public void acaoBotaoSair(){
-        int opcao = JOptionPane.showConfirmDialog(null, "Deseja sair do cadastro ?","Atenção",
-                                                      JOptionPane.YES_OPTION,
-                                                      JOptionPane.CANCEL_OPTION);
-        if(opcao == JOptionPane.YES_OPTION){
+
+    public void acaoBotaoSair() {
+        int opcao = JOptionPane.showConfirmDialog(null, "Deseja sair do cadastro ?", "Atenção",
+                JOptionPane.YES_OPTION,
+                JOptionPane.CANCEL_OPTION);
+        if (opcao == JOptionPane.YES_OPTION) {
             viewVendedor.dispose();
         }
-            
+
     }
 
 }

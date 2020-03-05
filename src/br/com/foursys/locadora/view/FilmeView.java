@@ -330,7 +330,7 @@ public class FilmeView extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jbtCancelar.setIcon(new javax.swing.ImageIcon("C:\\WorkspaceNetBeans\\Locadora\\Icones\\cancelar.png")); // NOI18N
+        jbtCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/foursys/locadora/view/Img/Icones/cancelar.png"))); // NOI18N
         jbtCancelar.setText("CANCELAR");
         jbtCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,7 +338,7 @@ public class FilmeView extends javax.swing.JFrame {
             }
         });
 
-        jbtSalvar.setIcon(new javax.swing.ImageIcon("C:\\WorkspaceNetBeans\\Locadora\\Icones\\salvar.png")); // NOI18N
+        jbtSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/foursys/locadora/view/Img/Icones/salvar.png"))); // NOI18N
         jbtSalvar.setText("SALVAR FILME");
         jbtSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -367,7 +367,7 @@ public class FilmeView extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
-        jbtExcluir.setIcon(new javax.swing.ImageIcon("C:\\WorkspaceNetBeans\\Locadora\\Icones\\excluir.png")); // NOI18N
+        jbtExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/foursys/locadora/view/Img/Icones/excluir.png"))); // NOI18N
         jbtExcluir.setText("Excluir");
         jbtExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -375,7 +375,7 @@ public class FilmeView extends javax.swing.JFrame {
             }
         });
 
-        jbtAlterar.setIcon(new javax.swing.ImageIcon("C:\\WorkspaceNetBeans\\Locadora\\Icones\\alterar.png")); // NOI18N
+        jbtAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/foursys/locadora/view/Img/Icones/alterar.png"))); // NOI18N
         jbtAlterar.setText("Alterar");
         jbtAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -383,7 +383,7 @@ public class FilmeView extends javax.swing.JFrame {
             }
         });
 
-        jbtSair.setIcon(new javax.swing.ImageIcon("C:\\WorkspaceNetBeans\\Locadora\\Icones\\sair.png")); // NOI18N
+        jbtSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/foursys/locadora/view/Img/Icones/sair.png"))); // NOI18N
         jbtSair.setText("Sair");
         jbtSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
